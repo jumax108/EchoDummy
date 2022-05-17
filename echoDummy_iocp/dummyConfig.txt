@@ -18,12 +18,12 @@ Echo {
    overSend : 1
    delay : 0
    reconnect : 0
-   reconnectRatio : 0
+   reconnectRatio : 1
 
 }
 
 Dummy {
 
-   clientNum : 50
+   clientNum : 1
 
 }

@@ -59,19 +59,13 @@ void CEchoClient::OnRecv(CPacketPtr_Lan packet){
 
 	unsigned __int64 data = -1;
 	packet >> data;
-	//printf("recv: %d\n",data);
 	
-	if(_echoRecvData == 0){
-		int k = 1;
-	}
-
 	if(_echoRecvData == data){
 		
 		_echoRecvData += 1;
 
 		CPacketPtr_Lan echoPacket;
 		echoPacket << _echoSendData;
-		//printf("send: %d\n", _echoSendData);
 
 		_echoSendData += 1;
 		
@@ -93,7 +87,7 @@ void CEchoClient::OnSend(int sendSize){
 
 	//printf("send size:%d\n", sendSize);
 
-	if(_beReconnect == true && _echoSendData > 100){
+	if(_beReconnect == true && _echoSendData > 1000000){
 
 		if(rand()%100 < _reconnectRatio){
 			// request disconnect
